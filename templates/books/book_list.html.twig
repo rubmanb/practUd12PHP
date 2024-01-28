@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 class="centered">Library App</h1>
+    {% if books is empty %}
+        <h2>No books found</h2>
+    {% else %}
+        <main class="book_list">
+            <h2 class="centered">Book List</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Publication Date</th>
+                </tr>
+                {% for book_item in books %}
+                    <tr>
+                        <td><a href="{{ path('single_book', { isbn: book_item.isbn }) }}">Open book</a></td>
+                        <td>{{ book_item.title }}</td>
+                        <td>{{ book_item.author }}</td>
+                        <td>{{ book_item.publisher }}</td>
+                        <td>{{ book_item.pub_date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </main>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainPageController!{% endblock %}
+
+{% block body %}
+
+    <h1>Library App</h1>
+    <h2>Welcome to my library</h2>
+<main>
+    <ul>
+        <li><p>View the full <a href ="{{ path('book_list') }}">book list</a></p></li>
+        <li><p>View the full  <a href ="{{ path('publisher_list') }}">publisher list</a></p></li>
+    </ul>
+</main>
+{% endblock %}

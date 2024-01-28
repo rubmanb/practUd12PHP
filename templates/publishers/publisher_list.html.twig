@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 class="centered">Library App</h1>
+    {% if publisher is empty %}
+        <h2>No publishers found</h2>
+    {% else %}
+        <main class="publisher_list">
+            <h2 class="centered">Publisher List</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+                {% for publisher_item in publisher %}
+                    <tr>
+                        <td><a href="{{ path('single_publisher', { id: publisher_item.id }) }}">Open publisher</a></td>
+                        <td>{{ publisher_item.id }}</td>
+                        <td>{{ publisher_item.name }}</td>
+                        <td>{{ publisher_item.email }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </main>
+    {% endif %}
+{% endblock %}

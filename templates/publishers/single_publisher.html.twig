@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PublishersController!{% endblock %}
+
+{% block body %}
+<main class="publisher">
+<h1 class="centered">Library App</h1>
+{% if publisher == null %}
+<h2>Please, enter a publisher ID</h2>
+{% elseif publisher.id == null %}
+<h2>No publisher found with id {{ publisher.id }} </h2>
+{% else %}
+<h2>Publisher: {{ publisher.name }}</h2>
+
+<p>Email: {{ publisher.email }}</p>
+
+</main>
+{% endif %}
+{% endblock %}

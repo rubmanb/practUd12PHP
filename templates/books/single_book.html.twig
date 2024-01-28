@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BooksController!{% endblock %}
+
+{% block body %}
+<main class="book">
+<h1 class="centered">Library App</h1>
+{% if book == null %}
+<h2>Please, enter a book ISBN</h2>
+{% elseif book.isbn == null %}
+<h2>No book found with isbn {{ book.isbn }} </h2>
+{% else %}
+<main class="book">
+    <h2>Book: {{ book.title}} </h2>
+    <ul>
+        <li><strong>Author:</strong> {{ book.author }}</li>
+        <li><strong>Publisher:</strong>
+                {% if book.publisher %}
+                    {% for publisher in book.publisher %}
+                        {{ publisher.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                {% else %}
+                    Unknown Publisher
+                {% endif %}
+            </li>
+        <li><strong>Publication Data:</strong> {{ book.pub_date}} </li>
+        <li><strong>Pages:</strong> {{ book.pages}} </li>
+        <li><strong>ISBN:</strong> {{ book.isbn}} </li>
+    <ul>
+</main>
+{% endif %}
+{% endblock %}
